@@ -1,27 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        // Instanciamos un cuadrado y un círculo
-        HG_Circulo Circulo1 = new HG_Circulo(3, 0, "verde");
-        HG_Rectangulo Rectangulo1 = new HG_Rectangulo(3, 3, 0, "rojo");
+        // Instanciamos un rectángulo y un círculo
+        HG_Circulo circulo1 = new HG_Circulo(3, 0, "verde");
+        HG_Rectangulo rectangulo1 = new HG_Rectangulo(3, 3, 0, "rojo");
 
-        // Calcula área cuadrado LadoA * LadoB
-        double ladoA = Rectangulo1.getladoA();
-        double ladoB = Rectangulo1.getladoB();
-        double area1 = ladoA * ladoB;
-        System.out.println("Área cuadrado: " + area1);
+        // Calculamos las áreas y la diferencia
+        double areaCirculo = calcularAreaCirculo(circulo1);
+        double areaRectangulo = calcularAreaRectangulo(rectangulo1);
+        double diferencia = calcularDiferencia(areaRectangulo, areaCirculo);
 
-        // Calcula área círculo pi * R^2
-        double radio1 = Circulo1.getRadio();
-        double area2 = radio1 * radio1 * 3.14;
-        System.out.println("Área círculo: " + area2);
+        // Imprimimos los resultados
+        imprimirResultados(rectangulo1, circulo1, diferencia, areaCirculo, areaRectangulo);
+    }
 
-        // Diferencia entre áreas de cuadrado y círculo
-        double diferencia = area1 - area2;
+    // Método para calcular el área del círculo
+    public static double calcularAreaCirculo(HG_Circulo circulo) {
+        double radio = circulo.getRadio();
+        return radio * radio * 3.14159265;
+    }
+
+    // Método para calcular el área del rectángulo
+    public static double calcularAreaRectangulo(HG_Rectangulo rectangulo) {
+        double ladoA = rectangulo.getladoA();
+        double ladoB = rectangulo.getladoB();
+        return ladoA * ladoB;
+    }
+
+    // Método para calcular la diferencia de áreas
+    public static double calcularDiferencia(double area1, double area2) {
+        return area1 - area2;
+    }
+
+    // Método para imprimir los resultados
+    public static void imprimirResultados(HG_Rectangulo rectangulo, HG_Circulo circulo,
+            double diferencia, double areaCirculo, double areaRectangulo) {
+        System.out.println("Área rectángulo: " + areaRectangulo);
+        System.out.println("Área círculo: " + areaCirculo);
         System.out.println("Diferencia áreas: " + diferencia);
-
-        // Imprimir datos
-        System.out.println("Rectángulo: " + Rectangulo1);
-        System.out.println("Círculo: " + Circulo1);
-        System.out.println("Diferencia: " + diferencia);
+        System.out.println("Rectángulo: " + rectangulo);
+        System.out.println("Círculo: " + circulo);
     }
 }

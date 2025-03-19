@@ -13,6 +13,7 @@ public class HG_Circulo {
         this.Color = Color;
     }
 
+    // Getter y Setter
     public int getId() {
         return id;
     }
@@ -35,6 +36,11 @@ public class HG_Circulo {
 
     public void setColor(String Color) {
         this.Color = Color;
+    }
+
+    // Método para calcular el área del círculo
+    public double calcularArea() {
+        return Radio * Radio * 3.14159265;
     }
 
     @Override

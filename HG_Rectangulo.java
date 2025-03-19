@@ -15,6 +15,8 @@ public class HG_Rectangulo {
         this.Color = Color;
     }
 
+    // Getter y Setter
+
     public int getId() {
         return id;
     }
@@ -45,6 +47,11 @@ public class HG_Rectangulo {
 
     public void setColor(String Color) {
         this.Color = Color;
+    }
+
+    // Método para calcular el área del rectángulo
+    public double calcularArea() {
+        return ladoA * ladoB;
     }
 
     @Override
